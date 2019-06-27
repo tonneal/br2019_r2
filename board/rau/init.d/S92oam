@@ -1,0 +1,23 @@
+#!/bin/sh
+
+case "$1" in
+	start)
+		/opt/etc/optjointS start
+		echo "startup oam applications"
+		;;
+
+	stop)
+		echo "stop oam applications"
+		/opt/etc/optjointK stop
+		;;
+
+	restart)
+		$0 stop
+		sleep 1
+		$0 start
+		;;
+
+	*)
+		echo "Usage: $0 {start|stop|restart}"
+		exit 1
+esac

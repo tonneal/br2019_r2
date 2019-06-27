@@ -3,11 +3,11 @@
 case "$1" in
 	start)
 		/opt/etc/optjointS start
-		echo -n "echo -n "startup opt applications""
+		echo "startup opt applications"
 		;;
 
 	stop)
-		echo -n "stop opt applications"
+		echo "stop opt applications"
 		/opt/etc/optjointK stop
 		;;
 

@@ -1,4 +1,4 @@
 master   8000 wheel -1 =Faceless   -            /bin/sh - High user
-slave    8001 wheel -1 =Ripper     /opt         /bin/sh - Mid user
-opta     8002 wheel -1 =kitkat     /opt         /bin/sh - Mid user
-rauusr   8003 users -1 =avatars    /home/rauusr /bin/sh - End user
+slave    8001 wheel -1 =Ripper     -            /bin/sh - Mid user
+admin    8003 wheel -1 =kitkat     /home/admin  /bin/sh - Mid user
+rauusr   8004 users -1 =avatars    /home/rauusr /bin/sh - End user
