@@ -47,6 +47,9 @@ ${INSTALL} -D -m 0755 ${BOARD_DIR}/profile ${TARGET_DIR}/etc/
 #${INSTALL} -D -m 0755 ${BOARD_DIR}/update.sh ${TARGET_DIR}/sbin/
 ${INSTALL} -D -m 0755 ${BOARD_DIR}/udc_handle_suspend.sh ${TARGET_DIR}/sbin/
 
+${INSTALL} -D -m 0755 ${BOARD_DIR}/check_slot ${TARGET_DIR}/usr/sbin/
+${INSTALL} -D -m 0755 ${BOARD_DIR}/switch_slot ${TARGET_DIR}/usr/sbin/
+
 #${INSTALL} -D -m 0755 ${BOARD_DIR}/S10mdev ${TARGET_DIR}/etc/init.d/
 ${INSTALL} -D -m 0755 ${BOARD_DIR}/init.d/S15watchdog ${TARGET_DIR}/etc/init.d/
 ${INSTALL} -D -m 0755 ${BOARD_DIR}/init.d/S20urandom ${TARGET_DIR}/etc/init.d/

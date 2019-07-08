@@ -1,0 +1,41 @@
+#!/bin/sh
+
+
+check_group(){
+	cmdstring=$(cat /proc/cmdline)
+	#cmdstring="console=ttyPS0,115200 uio_pdrv_genirq.of_id=generic-uio ${optargs} root=/dev/mmcblk1p3 ro earlyprintk rootfstype=ext4 rootwait rauc.slot=B"
+	slot=${cmdstring##*rauc.slot=}
+	partnum=${slot:0:1}
+	
+	if [ "$partnum" = "A" ]
+	then
+		echo "Switch A to B"
+		fw_setenv BOOT_SLOT B
+
+	elif [ "$partnum" = "B" ]
+	then
+		echo "Switch B to A"
+		fw_setenv BOOT_SLOT A
+	else 
+	   return 1
+	fi
+
+
+	return 0
+}
+
+case "$1" in
+	A)
+		echo "Set BOOT_SLOT to A"
+		fw_setenv BOOT_SLOT A
+		;;
+
+	B)
+		echo "Set BOOT_SLOT to B"
+		fw_setenv BOOT_SLOT B
+		;;
+
+	*)
+		check_group
+		exit 1
+esac

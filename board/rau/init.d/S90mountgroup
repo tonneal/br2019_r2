@@ -1,7 +1,7 @@
 #!/bin/sh
 
 
-boot_left_restore(){
+function boot_left_restore(){
 		boot_cnt_left=$(fw_printenv -n $1)
 		expr $boot_cnt_left + 1 >/dev/null 2>&1 
 		if [ $? -eq 0 ] 
@@ -21,7 +21,7 @@ boot_left_restore(){
 }
 
 
-check_group(){
+function check_group(){
 	cmdstring=$(cat /proc/cmdline)
 	#cmdstring="console=ttyPS0,115200 uio_pdrv_genirq.of_id=generic-uio ${optargs} root=/dev/mmcblk1p3 ro earlyprintk rootfstype=ext4 rootwait rauc.slot=B"
 	slot=${cmdstring##*rauc.slot=}

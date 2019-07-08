@@ -1,0 +1,8 @@
+#!/bin/sh
+
+cmdstring=$(cat /proc/cmdline)
+#cmdstring="console=ttyPS0,115200 uio_pdrv_genirq.of_id=generic-uio ${optargs} root=/dev/mmcblk1p3 ro earlyprintk rootfstype=ext4 rootwait rauc.slot=B"
+slot=${cmdstring##*rauc.slot=}
+partnum=${slot:0:1}
+
+echo $partnum

@@ -2,13 +2,13 @@
 
 case "$1" in
 	start)
-		/opt/etc/optjointS start
 		echo "startup oam applications"
+		/oam/etc/optjointS start
 		;;
 
 	stop)
 		echo "stop oam applications"
-		/opt/etc/optjointK stop
+		/oam/etc/optjointK stop
 		;;
 
 	restart)
