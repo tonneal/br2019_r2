@@ -1,0 +1,27 @@
+software =
+{
+	version = "1.0.1";
+	RAU = {
+		hardware-compatibility: [ "REV1" ];
+
+		files: (
+			{
+				filename = "rootfs.tar.gz";
+				type = "archive";
+				compressed = true;
+				device = "/dev/sys_update_node";
+				filesystem = "ext4";
+				path = "/";
+			}
+		);
+
+		scripts: (
+			{
+				filename = "update.sh";
+				type = "shellscript";
+			}
+		);
+
+	};
+}
+

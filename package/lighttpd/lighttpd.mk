@@ -91,10 +91,10 @@ endef
 
 LIGHTTPD_POST_INSTALL_TARGET_HOOKS += LIGHTTPD_INSTALL_CONFIG
 
-define LIGHTTPD_INSTALL_INIT_SYSV
-	$(INSTALL) -D -m 0755 package/lighttpd/S50lighttpd \
-		$(TARGET_DIR)/etc/init.d/S50lighttpd
-endef
+#define LIGHTTPD_INSTALL_INIT_SYSV
+#	$(INSTALL) -D -m 0755 package/lighttpd/S50lighttpd \
+#		$(TARGET_DIR)/etc/init.d/S50lighttpd
+#endef
 
 define LIGHTTPD_INSTALL_INIT_SYSTEMD
 	$(INSTALL) -D -m 0644 $(@D)/doc/systemd/lighttpd.service \

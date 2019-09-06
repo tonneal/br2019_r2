@@ -81,6 +81,8 @@ PHP_CONF_OPTS += $(if $(BR2_PACKAGE_PHP_SAPI_CLI),--enable-cli,--disable-cli)
 PHP_CONF_OPTS += $(if $(BR2_PACKAGE_PHP_SAPI_CGI),--enable-cgi,--disable-cgi)
 PHP_CONF_OPTS += $(if $(BR2_PACKAGE_PHP_SAPI_FPM),--enable-fpm,--disable-fpm)
 
+PHP_CONF_OPTS += --enable-debug --enable-maintainer-zts --enable-embed=shared --with-pic --disable-cli --with-pear --enable-inline-optimization
+
 ifeq ($(BR2_PACKAGE_PHP_SAPI_APACHE),y)
 PHP_DEPENDENCIES += apache
 PHP_CONF_OPTS += --with-apxs2=$(STAGING_DIR)/usr/bin/apxs
@@ -310,10 +312,10 @@ PHP_DEPENDENCIES += jpeg libpng freetype
 endif
 
 ifeq ($(BR2_PACKAGE_PHP_SAPI_FPM),y)
-define PHP_INSTALL_INIT_SYSV
-	$(INSTALL) -D -m 0755 $(@D)/sapi/fpm/init.d.php-fpm \
-		$(TARGET_DIR)/etc/init.d/S49php-fpm
-endef
+#define PHP_INSTALL_INIT_SYSV
+#	$(INSTALL) -D -m 0755 $(@D)/sapi/fpm/init.d.php-fpm \
+#		$(TARGET_DIR)/etc/init.d/S49php-fpm
+#endef
 
 define PHP_INSTALL_INIT_SYSTEMD
 	$(INSTALL) -D -m 0644 $(@D)/sapi/fpm/php-fpm.service \

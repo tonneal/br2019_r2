@@ -90,7 +90,8 @@ ${INSTALL} -D -m 0600 ${BOARD_DIR}/sudoers ${TARGET_DIR}/etc/sudoers
 
 ln -sf device_reboot ${TARGET_DIR}/usr/sbin/pluto_reboot
 
-
+#rm -rf ${TARGET_DIR}/etc/init.d/S50dropbear
+rm -rf ${TARGET_DIR}/etc/init.d/S50sshd
 
 git rev-list HEAD | sort > config.git-hash
 LOCALVER=`wc -l config.git-hash | awk '{print $1}'`
